@@ -1,4 +1,4 @@
-module.exports = function toReadable (number) {
+module.exports = function toReadable(number) {
     let numberWord;
     let numberArray = number.toString().split('');
     let words = {
@@ -33,34 +33,28 @@ module.exports = function toReadable (number) {
     };
 
     if (number <= 20) {
-        numberWord =  words[number];
-    }
-    else {
+        numberWord = words[number];
+    } else {
         if (numberArray.length === 2) {
             if (numberArray[1] > 0) {
-                numberWord = words[numberArray[0]+'0'] + ' ' + words[numberArray[1]];
-            }
-            else {
+                numberWord = words[numberArray[0] + '0'] + ' ' + words[numberArray[1]];
+            } else {
                 numberWord = words[number];
             }
-        }
-        else {
+        } else {
             numberWord = words[numberArray[0]] + ' hundred ';
             if (numberArray[2] > 0) {
                 if (numberArray[1] > 0) {
-                    if (numberArray[1]  < 2) {
+                    if (numberArray[1] < 2) {
                         numberWord += words[numberArray[1] + numberArray[2]];
-                    }
-                    else {
+                    } else {
                         numberWord += words[numberArray[1] + '0'] + ' ' + words[numberArray[2]];
                     }
-                }
-                else {
+                } else {
                     numberWord += words[numberArray[2]];
                 }
-            }
-            else if (numberArray[1] > 0) {
-                numberWord += words[numberArray[1]+'0'];
+            } else if (numberArray[1] > 0) {
+                numberWord += words[numberArray[1] + '0'];
             }
         }
     }
